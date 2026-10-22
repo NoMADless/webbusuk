@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark" />
+  <title>NoeAtelier — Instant Mobile Legends Top-Up</title>
+  <meta name="description" content="Top up Mobile Legends diamonds in seconds. Enter your in-game ID, pick a package, pay securely, and receive your diamonds instantly." />
+  <meta name="theme-color" content="#070b16" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23ffc247'/%3E%3Cpath d='M20 19h24l8 11-20 23L12 30z' fill='none' stroke='%23241703' stroke-width='3.5' stroke-linejoin='round'/%3E%3Cpath d='M12 30h40M26 30l6 23 6-23M20 19l6 11M44 19l-6 11' fill='none' stroke='%23241703' stroke-width='2.5'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#topup">Skip to top-up form</a>
+
+  <!-- Icon sprite -->
+  <svg class="sprite" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-gem" viewBox="0 0 24 24">
+      <path d="M7 3h10l4 5.5L12 21 3 8.5 7 3Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M3 8.5h18M8.5 8.5 12 21l3.5-12.5M7 3l1.5 5.5M17 3l-1.5 5.5" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round" opacity=".65"/>
+    </symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24">
+      <path d="M13.2 2 4.5 14h5.6L10 22l8.8-12h-5.6l.9-8Z" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24">
+      <path d="M12 3 5 6v5.2c0 4.3 2.9 8.1 7 9.8 4.1-1.7 7-5.5 7-9.8V6l-7-3Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+      <path d="m9 12 2.2 2.2L15.4 10" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-headset" viewBox="0 0 24 24">
+      <path d="M4 14v-2a8 8 0 0 1 16 0v2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+      <rect x="3" y="13.5" width="4" height="6" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.7"/>
+      <rect x="17" y="13.5" width="4" height="6" rx="1.6" fill="none" stroke="currentColor" stroke-width="1.7"/>
+    </symbol>
+    <symbol id="i-id" viewBox="0 0 24 24">
+      <rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/>
+      <circle cx="8.6" cy="11" r="2" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M5.8 16c.3-1.5 1.4-2.3 2.8-2.3s2.5.8 2.8 2.3M14 10h4M14 13.5h3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24">
+      <rect x="3" y="5" width="18" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.7"/>
+      <path d="M3 10h18M7 15h4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24">
+      <path d="m4.5 12.5 5 5L19.5 6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24">
+      <path d="M12 3.5 2.8 19.5h18.4L12 3.5Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+      <path d="M12 9v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="12" cy="17" r=".9" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24">
+      <path d="M5 12h13M13 6.5l5.5 5.5L13 17.5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="8.7" fill="none" stroke="currentColor" stroke-width="1.7"/>
+      <path d="M12 7.5V12l3 1.8" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+    </symbol>
+  </svg>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="NoeAtelier home">
+        <span class="brand-mark"><svg class="icon" aria-hidden="true"><use href="#i-gem"/></svg></span>
+        <span>NoeAtelier</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#topup">Top up</a>
+        <a href="#how">How it works</a>
+        <a href="#why">Why us</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a class="btn btn-gold btn-sm header-cta" href="#topup">Top up now</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="pulse"></span> Instant delivery · 100% secure</p>
+          <h1>Top up <span class="grad">Mobile Legends</span> diamonds in seconds.</h1>
+          <p class="lead">Enter your in-game ID, pick a package, and pay. Your diamonds land in your account right away — no password, no login, no waiting.</p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="#topup">Top up now <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a class="btn btn-ghost" href="#how">How it works</a>
+          </div>
+          <ul class="trust-row">
+            <li><span class="tick">✓</span> Instant delivery</li>
+            <li><span class="tick">✓</span> Secure payment</li>
+            <li><span class="tick">✓</span> 24/7 support</li>
+          </ul>
+        </div>
+
+        <div class="hero-art" aria-hidden="true">
+          <div class="hero-glow"></div>
+          <div class="receipt">
+            <div class="receipt-top">
+              <span class="mini-chip">Mobile Legends</span>
+              <span class="diamond-badge"><svg class="icon"><use href="#i-gem"/></svg></span>
+            </div>
+            <p class="receipt-label">You receive</p>
+            <p class="receipt-amount">1,412 <span>Diamonds</span></p>
+            <div class="receipt-rows">
+              <div class="rrow"><span>Account</span><strong>12884412 · 2015</strong></div>
+              <div class="rrow"><span>Delivery</span><strong class="ok"><i class="dot"></i>Instant · 42s</strong></div>
+              <div class="rrow"><span>Paid with</span><strong>QRIS</strong></div>
+            </div>
+            <p class="receipt-note"><svg class="icon"><use href="#i-shield"/></svg> Safe checkout · no password needed</p>
+          </div>
+          <div class="float-pill">
+            <span class="stars">★★★★★</span>
+            <div><strong>4.9 / 5</strong><span>12,400+ reviews</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="stats">
+        <div class="stat"><strong>120k+</strong><span>Top-ups delivered</span></div>
+        <div class="stat"><strong>~45 sec</strong><span>Average delivery</span></div>
+        <div class="stat"><strong>4.9 / 5</strong><span>Player rating</span></div>
+        <div class="stat"><strong>24 / 7</strong><span>Live support</span></div>
+      </div>
+    </div>
+
+    <section id="topup" class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Top up</p>
+          <h2>Three simple steps</h2>
+          <p>No sign-up required. Just your in-game ID, a package, and a payment method.</p>
+        </div>
+
+        <div class="order-grid">
+          <div class="steps">
+            <section class="card step" data-step="1" aria-labelledby="step1-title">
+              <div class="step-head">
+                <span class="step-num" aria-hidden="true">1</span>
+                <div>
+                  <h3 id="step1-title">Enter your account</h3>
+                  <p>Use the User ID and Zone ID shown in your Mobile Legends profile.</p>
+                </div>
+              </div>
+              <div class="fields">
+                <div class="field">
+                  <label for="userId">User ID</label>
+                  <input id="userId" type="text" inputmode="numeric" autocomplete="off" placeholder="e.g. 12884412" maxlength="12" aria-describedby="userIdError" />
+                  <p class="field-error" id="userIdError" role="alert"></p>
+                </div>
+                <div class="field">
+                  <label for="zoneId">Zone ID</label>
+                  <input id="zoneId" type="text" inputmode="numeric" autocomplete="off" placeholder="e.g. 2015" maxlength="5" aria-describedby="zoneIdError" />
+                  <p class="field-error" id="zoneIdError" role="alert"></p>
+                </div>
+              </div>
+              <details class="helper">
+                <summary>Where do I find my User ID?</summary>
+                <p>Open Mobile Legends and tap your avatar in the top-left corner. Your <strong>User ID</strong> and <strong>Zone ID</strong> appear under your nickname, e.g. <code>12884412 (2015)</code>.</p>
+              </details>
+              <p class="hint warn">
+                <svg class="icon" aria-hidden="true"><use href="#i-alert"/></svg>
+                Double-check your IDs — completed top-ups cannot be reversed.
+              </p>
+            </section>
+
+            <section class="card step" data-step="2" aria-labelledby="step2-title">
+              <div class="step-head">
+                <span class="step-num" aria-hidden="true">2</span>
+                <div>
+                  <h3 id="step2-title">Choose a package</h3>
+                  <p>Diamonds are credited to your account the moment payment is confirmed.</p>
+                </div>
+              </div>
+              <div class="tabs" role="group" aria-label="Package type">
+                <button class="tab is-active" type="button" data-category="diamonds" aria-pressed="true">Diamonds</button>
+                <button class="tab" type="button" data-category="passes" aria-pressed="false">Passes &amp; bundles</button>
+              </div>
+              <div class="pack-grid" id="packGrid"></div>
+              <p class="field-error" id="packageError" role="alert"></p>
+              <noscript><p class="hint">Please enable JavaScript to load the packages.</p></noscript>
+            </section>
+
+            <section class="card step" data-step="3" aria-labelledby="step3-title">
+              <div class="step-head">
+                <span class="step-num" aria-hidden="true">3</span>
+                <div>
+                  <h3 id="step3-title">Pick a payment method</h3>
+                  <p>All payments are encrypted and processed instantly.</p>
+                </div>
+              </div>
+              <div class="pay-grid" id="payGrid">
+                <label class="pay">
+                  <input type="radio" name="payment" value="QRIS" />
+                  <span class="pay-logo qris" aria-hidden="true">QR</span>
+                  <span class="pay-name">QRIS</span>
+                </label>
+                <label class="pay">
+                  <input type="radio" name="payment" value="GoPay" />
+                  <span class="pay-logo gopay" aria-hidden="true">gp</span>
+                  <span class="pay-name">GoPay</span>
+                </label>
+                <label class="pay">
+                  <input type="radio" name="payment" value="OVO" />
+                  <span class="pay-logo ovo" aria-hidden="true">OV</span>
+                  <span class="pay-name">OVO</span>
+                </label>
+                <label class="pay">
+                  <input type="radio" name="payment" value="DANA" />
+                  <span class="pay-logo dana" aria-hidden="true">D</span>
+                  <span class="pay-name">DANA</span>
+                </label>
+                <label class="pay">
+                  <input type="radio" name="payment" value="ShopeePay" />
+                  <span class="pay-logo shopeepay" aria-hidden="true">S</span>
+                  <span class="pay-name">ShopeePay</span>
+                </label>
+                <label class="pay">
+                  <input type="radio" name="payment" value="Bank Transfer" />
+                  <span class="pay-logo bank" aria-hidden="true">B</span>
+                  <span class="pay-name">Bank Transfer</span>
+                </label>
+              </div>
+              <p class="field-error" id="paymentError" role="alert"></p>
+            </section>
+          </div>
+
+          <aside class="summary" aria-label="Order summary">
+            <div class="summary-card">
+              <div class="summary-head">
+                <h3>Order summary</h3>
+                <span class="badge">Instant</span>
+              </div>
+              <div class="srows">
+                <div class="srow"><span>Game</span><strong>Mobile Legends</strong></div>
+                <div class="srow"><span>User ID</span><strong id="sumAccount" class="empty">Not set</strong></div>
+                <div class="srow"><span>Package</span><strong id="sumPackage" class="empty">Not selected</strong></div>
+                <div class="srow"><span>Payment</span><strong id="sumPayment" class="empty">Not selected</strong></div>
+              </div>
+
+              <div class="promo">
+                <label for="promoInput">Promo code</label>
+                <div class="promo-row">
+                  <input id="promoInput" type="text" placeholder="Enter code" autocomplete="off" />
+                  <button class="btn btn-ghost" id="applyPromo" type="button">Apply</button>
+                </div>
+                <p class="promo-msg" id="promoMsg" aria-live="polite">New here? Try <button class="link" id="promoHint" type="button">MLBB10</button> for 10% off.</p>
+              </div>
+
+              <div class="totals">
+                <div class="trow"><span>Subtotal</span><strong id="sumSubtotal">Rp 0</strong></div>
+                <div class="trow discount" id="discountRow" hidden><span>Discount (10%)</span><strong id="sumDiscount">−Rp 0</strong></div>
+                <div class="trow total"><span>Total</span><strong id="sumTotal">Rp 0</strong></div>
+              </div>
+
+              <button class="btn btn-gold btn-block" id="checkout" type="button">Complete payment</button>
+              <p class="form-error" id="formError" role="alert"></p>
+              <p class="summary-foot"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg> Secure checkout · diamonds delivered instantly</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">How it works</p>
+          <h2>From ID to diamonds in a minute</h2>
+          <p>Three quick steps. No account registration, no app download.</p>
+        </div>
+        <div class="how-grid">
+          <article class="card how-card">
+            <span class="how-icon"><svg class="icon" aria-hidden="true"><use href="#i-id"/></svg></span>
+            <span class="how-step">Step 1</span>
+            <h3>Enter your ID</h3>
+            <p>Copy your User ID and Zone ID from your in-game profile. That's all we need.</p>
+          </article>
+          <article class="card how-card">
+            <span class="how-icon"><svg class="icon" aria-hidden="true"><use href="#i-gem"/></svg></span>
+            <span class="how-step">Step 2</span>
+            <h3>Choose a package</h3>
+            <p>Pick the diamonds or pass you want. Every price is final — no hidden fees.</p>
+          </article>
+          <article class="card how-card">
+            <span class="how-icon"><svg class="icon" aria-hidden="true"><use href="#i-wallet"/></svg></span>
+            <span class="how-step">Step 3</span>
+            <h3>Pay &amp; receive</h3>
+            <p>Complete payment with your favourite method and watch the diamonds arrive.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="why" class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">Why NoeAtelier</p>
+          <h2>Fast, safe, and always on</h2>
+          <p>Built for players who want their diamonds without the hassle.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="card feature">
+            <span class="feature-icon gold"><svg class="icon" aria-hidden="true"><use href="#i-bolt"/></svg></span>
+            <h3>Instant delivery</h3>
+            <p>Top-ups are processed automatically, so your diamonds usually arrive within a minute.</p>
+          </article>
+          <article class="card feature">
+            <span class="feature-icon blue"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></span>
+            <h3>Safe checkout</h3>
+            <p>We never ask for your password or login. Payments run through trusted providers.</p>
+          </article>
+          <article class="card feature">
+            <span class="feature-icon violet"><svg class="icon" aria-hidden="true"><use href="#i-headset"/></svg></span>
+            <h3>Real support</h3>
+            <p>Questions or a missing order? Our team is available 24/7 to help you sort it out.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">FAQ</p>
+          <h2>Questions, answered</h2>
+          <p>Everything you need to know before your first top-up.</p>
+        </div>
+        <div class="faq-list">
+          <details class="faq-item" open>
+            <summary>How fast will I receive my diamonds?</summary>
+            <p>Most orders are delivered in under a minute after payment is confirmed. In rare cases, delivery can take up to 15 minutes during peak hours.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Do you need my Mobile Legends password?</summary>
+            <p>No. We only need your User ID and Zone ID to send diamonds directly to your account. Never share your password with anyone.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Where can I find my User ID and Zone ID?</summary>
+            <p>Open Mobile Legends and tap your avatar in the top-left corner. Your User ID and Zone ID are displayed under your nickname in the format <code>12345678 (1234)</code>.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Which payment methods do you accept?</summary>
+            <p>QRIS, GoPay, OVO, DANA, ShopeePay, and bank transfers. All payments are processed securely by our payment partners.</p>
+          </details>
+          <details class="faq-item">
+            <summary>What if my diamonds don't arrive?</summary>
+            <p>Contact our support team with your order number and account ID. If an order can't be delivered, you'll receive a full refund.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#top">
+          <span class="brand-mark"><svg class="icon" aria-hidden="true"><use href="#i-gem"/></svg></span>
+          <span>NoeAtelier</span>
+        </a>
+        <p>Instant, secure Mobile Legends top-ups for players in Southeast Asia and beyond.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="#topup">Top up</a>
+        <a href="#how">How it works</a>
+        <a href="#faq">FAQ</a>
+        <a href="#faq">Support</a>
+      </nav>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="year">2026</span> NoeAtelier. All rights reserved.</p>
+      <p>NoeAtelier is an independent top-up service and is not affiliated with, endorsed by, or sponsored by Moonton or Mobile Legends: Bang Bang.</p>
+    </div>
+  </footer>
+
+  <div class="mobile-bar">
+    <div><span>Total</span><strong id="mobileTotal">Rp 0</strong></div>
+    <button class="btn btn-gold" id="mobileCheckout" type="button">Checkout</button>
+  </div>
+
+  <div class="modal" id="successModal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <span class="modal-icon"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span>
+      <h3 id="modalTitle">Top-up confirmed!</h3>
+      <p class="modal-sub">Your diamonds are on the way — usually delivered in under a minute.</p>
+      <div class="modal-rows">
+        <div class="srow"><span>Order</span><strong id="mOrder">—</strong></div>
+        <div class="srow"><span>Account</span><strong id="mAccount">—</strong></div>
+        <div class="srow"><span>Package</span><strong id="mPackage">—</strong></div>
+        <div class="srow"><span>Payment</span><strong id="mPayment">—</strong></div>
+        <div class="srow"><span>Total</span><strong id="mTotal">—</strong></div>
+      </div>
+      <p class="modal-note">Preview mode — this is a demo checkout. No real payment was taken.</p>
+      <div class="modal-actions">
+        <button class="btn btn-gold" id="modalClose" type="button">Done</button>
+        <button class="btn btn-ghost" id="modalAgain" type="button">New order</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
